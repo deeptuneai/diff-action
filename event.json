@@ -1,0 +1,16 @@
+{
+  "repository": {
+    "full_name": "your-username/your-repo"
+  },
+  "pull_request": {
+    "number": 123,
+    "user": {
+      "login": "test-user",
+      "id": 12345
+    }
+  },
+  "sender": {
+    "login": "test-user",
+    "id": 12345
+  }
+}

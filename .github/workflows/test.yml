@@ -1,0 +1,12 @@
+name: Test
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          api-key: ${{ secrets.DEEPTUNE_API_KEY }}
+          app-url: ${{ secrets.DEEPTUNE_APP_URL }}
