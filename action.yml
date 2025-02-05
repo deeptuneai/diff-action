@@ -1,0 +1,22 @@
+name: "Example Action"
+description: "A reusable GitHub Action that processes markdown files"
+author: "Deeptest"
+
+# Define the inputs that users of your action can provide
+inputs:
+  api-key:
+    description: "API key for authentication"
+    required: true
+  app-url:
+    description: "Application URL endpoint"
+    required: true
+
+# Specify the runtime environment
+runs:
+  using: "node20" # This action will run on Node.js 20
+  main: "dist/index.js" # The entry point for your action
+
+# Branding for the GitHub Marketplace
+branding:
+  icon: "file-text"
+  color: "blue"
