@@ -1,11 +1,8 @@
-# diff-action
-
-### Local development
-
-Install [act](https://github.com/nektos/act) to run Github workflows locally:
-
+# Deeptest in a GitHub Action CI/CD Pipeline
 
 ## Example usage in your GitHub Repository
+
+Install the [GitHub app](https://github.com/apps/deeptest-sh) and grant it access to your repository.
 
 
 In `.github/workflows/mygithubaction.yaml`:
