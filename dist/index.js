@@ -31871,16 +31871,15 @@ async function run() {
 
     // Make the API request
     console.log("Making API request to receive preview deployment...");
-    const response = await fetch(
-      `${API_URL}/v1/github/receive-preview-deployment`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestPayload),
-      }
-    );
+    const targetUrl = `${API_URL}/v1/github/receive-preview-deployment`;
+    console.log("Target URL:", targetUrl);
+    const response = await fetch(targetUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestPayload),
+    });
 
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
