@@ -1,4 +1,4 @@
-name: "Deeptest"
+name: "Deeptest GitHub Action"
 description: "Run visual regression tests in your GitHub Actions CI/CD pipeline"
 author: "Deeptest"
 
