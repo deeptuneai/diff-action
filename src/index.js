@@ -2,20 +2,20 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const fs = require("fs").promises;
 
-// const API_URL = "https://api.deeptest.sh";
-const API_URL = "http://localhost:8080";
+const API_URL = "https://api.deeptest.sh";
+// const API_URL = "http://localhost:8080";
 async function run() {
   try {
     // Get input parameters from action.yml
     const apiKey = core.getInput("api-key");
-    const appUrl = core.getInput("app-url");
+    const deploymentUrl = core.getInput("deployment-url");
 
     console.log("Starting Deeptest action...");
 
     // Validate required inputs
-    if (!apiKey || !appUrl) {
+    if (!apiKey || !deploymentUrl) {
       throw new Error(
-        "Missing required inputs: api-key and app-url must be provided"
+        "Missing required inputs: api-key and deployment-url must be provided"
       );
     }
 
@@ -31,13 +31,12 @@ async function run() {
 
     // Prepare the request payload based on GithubDiffActionRequest model
     const requestPayload = {
-      api_key: apiKey,
-      app_url: appUrl,
+      repository_full_name: context.payload.repository.full_name,
       sha: sha,
-      repo_name: context.payload.repository.full_name,
-      pull_request: context.payload.pull_request || {},
+      deployment_url: deploymentUrl,
+      pull_request: context.payload.pull_request || null,
       commit_author:
-        context.payload.pull_request?.user || context.payload.sender || {},
+        context.payload.pull_request?.user || context.payload.sender || null,
       num_tries: 2,
     };
 
