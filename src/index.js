@@ -2,8 +2,8 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const fs = require("fs").promises;
 
-const API_URL = "https://api.deeptest.sh";
-// const API_URL = "http://localhost:8080";
+const API_URL = "http://api.deeptest.sh";
+
 async function run() {
   try {
     // Get input parameters from action.yml
@@ -42,16 +42,15 @@ async function run() {
 
     // Make the API request
     console.log("Making API request to receive preview deployment...");
-    const response = await fetch(
-      `${API_URL}/v1/github/receive-preview-deployment`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestPayload),
-      }
-    );
+    const targetUrl = `${API_URL}/v1/github/receive-preview-deployment`;
+    console.log("Target URL:", targetUrl);
+    const response = await fetch(targetUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestPayload),
+    });
 
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
