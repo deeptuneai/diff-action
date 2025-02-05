@@ -10,5 +10,5 @@ jobs:
     steps:
       - uses: deeptuneai/diff-action@main
         with:
-          api-key: ${{ secrets.DEEPTUNE_API_KEY }}
+          api-key: blaugh
           deployment-url: https://app.deeptest.sh
