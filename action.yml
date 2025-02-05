@@ -1,14 +1,12 @@
-name: "Example Action"
-description: "A reusable GitHub Action that processes markdown files"
+name: "Deeptest"
+description: "Run visual regression tests in your GitHub Actions CI/CD pipeline"
 author: "Deeptest"
 
-# Define the inputs that users of your action can provide
 inputs:
   deployment-url:
     description: "Application URL endpoint"
     required: true
 
-# Specify the runtime environment
 runs:
   using: "node20" # This action will run on Node.js 20
   main: "dist/index.js" # The entry point for your action
