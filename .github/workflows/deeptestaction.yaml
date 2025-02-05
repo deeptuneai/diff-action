@@ -1,0 +1,14 @@
+name: Run Deeptest Github Action
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: deeptuneai/diff-action@main
+        with:
+          api-key: blaugh
+          deployment-url: https://app.deeptest.sh
