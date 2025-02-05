@@ -4,9 +4,6 @@ author: "Deeptest"
 
 # Define the inputs that users of your action can provide
 inputs:
-  api-key:
-    description: "API key for authentication"
-    required: true
   deployment-url:
     description: "Application URL endpoint"
     required: true

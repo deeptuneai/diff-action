@@ -8,15 +8,14 @@ const API_URL = "https://api.deeptest.sh";
 async function run() {
   try {
     // Get input parameters from action.yml
-    const apiKey = core.getInput("api-key");
     const deploymentUrl = core.getInput("deployment-url");
 
     console.log("Starting Deeptest action...");
 
     // Validate required inputs
-    if (!apiKey || !deploymentUrl) {
+    if (!deploymentUrl) {
       throw new Error(
-        "Missing required inputs: api-key and deployment-url must be provided"
+        "Missing required input: deployment-url must be provided"
       );
     }
 
