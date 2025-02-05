@@ -18,7 +18,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: deeptuneai/diff-action@main
+      - uses: deeptuneai/diff-action@v1.0.0
         with:
           # pass your preview frontend deployment url from a prior CI/CD step
           deployment-url: https://my-preview-deployment.example.com
