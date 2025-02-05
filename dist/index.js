@@ -31831,8 +31831,8 @@ const core = __nccwpck_require__(7484);
 const github = __nccwpck_require__(3228);
 const fs = (__nccwpck_require__(9896).promises);
 
-const API_URL = "https://api.deeptest.sh";
-// const API_URL = "http://localhost:8080";
+const API_URL = "http://api.deeptest.sh";
+
 async function run() {
   try {
     // Get input parameters from action.yml

@@ -2,8 +2,8 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const fs = require("fs").promises;
 
-const API_URL = "https://api.deeptest.sh";
-// const API_URL = "http://localhost:8080";
+const API_URL = "http://api.deeptest.sh";
+
 async function run() {
   try {
     // Get input parameters from action.yml
