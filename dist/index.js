@@ -38991,17 +38991,12 @@ async function run() {
     console.log("Making API request to receive preview deployment...");
     const targetUrl = `${API_URL}/v1/github/receive-preview-deployment`;
     console.log("Target URL:", targetUrl);
-    const response = await axios.post(targetUrl, requestPayload, {
+    const { data } = await axios.post(targetUrl, requestPayload, {
       headers: {
         "Content-Type": "application/json",
       },
     });
 
-    if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`);
-    }
-
-    const data = await response.json();
     console.log("API Response:", data);
 
     console.log("✅ Successfully authenticated");
