@@ -1,8 +1,9 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 const fs = require("fs").promises;
+const axios = require("axios");
 
-const API_URL = "http://api.deeptest.sh";
+const API_URL = "https://api.deeptest.sh";
 
 async function run() {
   try {
@@ -44,12 +45,10 @@ async function run() {
     console.log("Making API request to receive preview deployment...");
     const targetUrl = `${API_URL}/v1/github/receive-preview-deployment`;
     console.log("Target URL:", targetUrl);
-    const response = await fetch(targetUrl, {
-      method: "POST",
+    const response = await axios.post(targetUrl, requestPayload, {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(requestPayload),
     });
 
     if (!response.ok) {
