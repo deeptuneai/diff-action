@@ -38970,21 +38970,20 @@ async function run() {
     const context = github.context;
     const sha = context.sha;
     const prNumber = context.payload.pull_request?.number;
+    const prSha = context.payload.pull_request?.head.sha;
 
     console.log(`Current SHA: ${sha}`);
-    if (prNumber) {
-      console.log(`Pull Request #: ${prNumber}`);
-    }
+    console.log(`Pull Request SHA: ${prSha}`);
+    console.log(`Pull Request #: ${prNumber}`);
 
     // Prepare the request payload based on GithubDiffActionRequest model
     const requestPayload = {
       repository_full_name: context.payload.repository.full_name,
-      sha: sha,
+      sha: prSha,
       deployment_url: deploymentUrl,
       pull_request: context.payload.pull_request || null,
       commit_author:
         context.payload.pull_request?.user || context.payload.sender || null,
-      num_tries: 2,
     };
 
     // Make the API request
