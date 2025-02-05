@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: deeptuneai/diff-action@v0.0.1
-      - uses: ./
         with:
           api-key: ${{ secrets.DEEPTUNE_API_KEY }}
           deployment-url: https://app.deeptest.sh
