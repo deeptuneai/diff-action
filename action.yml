@@ -7,7 +7,7 @@ inputs:
   api-key:
     description: "API key for authentication"
     required: true
-  app-url:
+  deployment-url:
     description: "Application URL endpoint"
     required: true
 
